@@ -68,16 +68,27 @@ function generatePermutations(maListe){
     for(i in maListe){
 
         let element = maListe[i];
+        let myListCopy = Array.from(maListe);
 
-        maListe.splice(i,1);
+        myListCopy.splice(i,1);
 
-        result = concateneListe2D(result,prependElementToEach(element,generatePermutations(maListe)));
+        result = concateneListe2D(result,prependElementToEach(element,generatePermutations(myListCopy)));
 
-        maListe.splice(i-1,0,element);
+        //maListe.splice(i-1,0,element);
+
+        //console.log(maListe);
+        
 
     }
 
     return result;
+
+}
+
+//sans doublons qui sont générés lorsque la chaine contient des lettres en double
+function generatePermutationsFromStringClean(maChaine){
+
+    return removeDuplicates(liste2dToStringList(generatePermutations(maChaine.split(''))));
 
 }
 
@@ -114,11 +125,32 @@ function afficheList(maListe){
 
 }
 
-let chaineTest = "nicolas";
+function removeDuplicates(maListe){
+
+    let result = [];
+
+    maListe.forEach(element => {
+
+        if(!result.includes(element)){
+
+            result.push(element);
+
+        }
+
+    });
+
+    return result;
+
+}
+
+let chaineTest = "test";
 
 let result = generatePermutationsFromString(chaineTest);
+let resultClean = generatePermutationsFromStringClean(chaineTest);
 
 console.log(result);
+console.log(resultClean);
+
 
 //afficheList(result);
 
