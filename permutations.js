@@ -1,3 +1,4 @@
+//concatene des listes de dimension 2 en une seule liste de dimension 2
 function concateneListe2D(){
 
     let result = [];
@@ -23,6 +24,7 @@ console.log(concatResult);
 
 */
 
+//ajoute un element au début de chaque sous listes appartenant à une liste de dimension 2 passée en paramètre
 function prependElementToEach(element, liste2d){
 
     let result = [];
@@ -47,12 +49,14 @@ console.log(result);
 
 */
 
+//genere toutes les permutations possibles d'une chaine de caractere
 function generatePermutationsFromString(maChaine){
 
     return liste2dToStringList(generatePermutations(maChaine.split('')));
 
 }
 
+//genere toutes les permutations possibles d'une liste
 function generatePermutations(maListe){  
 
     if(maListe.length <= 1){
@@ -89,6 +93,7 @@ function listToString(maListe){
 
 }
 
+//transforme une liste de dimension 2 en liste de dimension 1 composée des chaines de caractères représentants les sous listes de la liste passée en paramètre
 function liste2dToStringList(maListe2d){
 
     let result = [];
@@ -109,10 +114,12 @@ function afficheList(maListe){
 
 }
 
-let chaineTest = "tes";
+let chaineTest = "nicolas";
 
 let result = generatePermutationsFromString(chaineTest);
 
-afficheList(result);
+console.log(result);
+
+//afficheList(result);
 
 
